@@ -1,0 +1,22 @@
+{
+    "name": "emits",
+    "description": "Events emitter.",
+    "version": "0.0.0",
+    "homepage": "https://github.com/ryanve/emits",
+    "license": "MIT",
+    "author": "Ryan Van Etten",
+    "keywords": ["events", "emitter", "emit", "simple", "ender"],
+    "main": "./emits.js",
+    "ender": "noop",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ryanve/emits.git"
+    },
+    "devDependencies": {
+        "aok": "~1.7.0",
+        "grunt": "~0.4.1",
+        "grunt-contrib-uglify": "~0.2.4",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-jshint": "~0.6.4"
+    }
+}
