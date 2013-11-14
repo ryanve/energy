@@ -1,5 +1,5 @@
 # [emits](../../)
-#### simple events emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
+#### simple event emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
 
 ## API ([0.0](../../releases))
 

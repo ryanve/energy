@@ -1,11 +1,11 @@
 {
     "name": "emits",
-    "description": "Events emitter.",
+    "description": "Simple event emitter.",
     "version": "0.0.0",
     "homepage": "https://github.com/ryanve/emits",
     "license": "MIT",
     "author": "Ryan Van Etten",
-    "keywords": ["events", "emitter", "emit", "simple", "ender"],
+    "keywords": ["events", "emitter", "emit", "simple", "ender", "server", "browser"],
     "main": "./emits.js",
     "ender": "noop",
     "repository": {
