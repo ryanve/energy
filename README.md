@@ -14,12 +14,12 @@ var emitter = emits()
 
 #### `emitter` inherits from `emits.prototype`
 
-- `emitter.listeners(name)` &rArr; array
-- `emitter.on(name, fn)` &rArr; emitter
-- `emitter.off(name?, fn?, occurrences?)` &rArr; emitter
-- `emitter.emit(name, args...)` &rArr; integer
-- `emitter.once(name, fn)` &rArr; emitter
-- `emitter.many(name, times, fn)` &rArr; emitter
+- `emitter.listeners(event)` &rArr; array
+- `emitter.on(event, fn)` &rArr; emitter
+- `emitter.off(event?, fn?, occurrences?)` &rArr; emitter
+- `emitter.emit(event, args...)` &rArr; integer
+- `emitter.once(event, fn)` &rArr; emitter
+- `emitter.many(event, times, fn)` &rArr; emitter
 - `emitter.init()` &rArr; emitter
 
 ### Utilities
