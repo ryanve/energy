@@ -1,0 +1,4 @@
+emits
+=====
+
+JavaScript event emitter
