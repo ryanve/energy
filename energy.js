@@ -1,15 +1,15 @@
 /*!
- * emits 0.0.0+201311140811
- * https://github.com/ryanve/emits
+ * energy 0.1.0+201401032155
+ * https://github.com/ryanve/energy
  * MIT License 2013 Ryan Van Etten
  */
 
 (function(root, name, make) {
     if (typeof module != 'undefined' && module['exports']) module['exports'] = make();
-    else root[name] = make(root); 
-}(this, 'emits', function() {
+    else root[name] = make(root);
+}(this, 'energy', function() {
 
-    var emitter = emits.prototype = Emits.prototype
+    var emitter = energy.prototype = Energy.prototype
       , proceed = {}
       , array = []
       , slice = array.slice
@@ -35,16 +35,16 @@
     /**
      * @constructor
      */
-    function Emits(ops) {
-        this[mode] = ops instanceof Emits ? defaults({}, ops[mode]) : defaults(ops || {}, emitter[mode]);
+    function Energy(ops) {
+        this[mode] = ops instanceof Energy ? defaults({}, ops[mode]) : defaults(ops || {}, emitter[mode]);
         this[events] = {};
     }
 
     /**
-     * @return {Emits}
+     * @return {Energy}
      */
-    function emits(o) {
-        return o instanceof Emits ? o[init]() : new Emits(o);
+    function energy(o) {
+        return o instanceof Energy ? o[init]() : new Energy(o);
     }
     
     /**
@@ -83,7 +83,7 @@
     }
     
     /**
-     * @this {Emits|Object}
+     * @this {Energy|Object}
      */    
     emitter[init] = function() {
         ensure(this, mode, {});
@@ -110,10 +110,10 @@
     };
     
     /**
-     * @return {Emits}
+     * @return {Energy}
      */    
     emitter['clone'] = function() {
-        var clone = new Emits(this);
+        var clone = new Energy(this);
         defaults(clone[events], this[events]);
         return clone;
     };
@@ -121,7 +121,7 @@
     /**
      * @param {Array|string|number} id
      * @param {Function} fn
-     * @return {Emits|Object}
+     * @return {Energy|Object}
      */    
     emitter['on'] = function on(id, fn) {
         if (null == id || null == fn) throw new TypeError('@on');
@@ -135,7 +135,7 @@
      * @param {(Function|string|number)=} id
      * @param {(Function|string|number)=} fn handler to remove or iterator index
      * @param {number=} times number of occurrences to remove - 0 (the default) removes all
-     * @return {Emits|Object}
+     * @return {Energy|Object}
      */
     emitter['off'] = function(id, fn, times) {
         var iter = typeof id == 'function';
@@ -149,7 +149,7 @@
      * @param {string|number} id
      * @param {number|boolean|null|undefined} more
      * @param {Function} fn
-     * @return {Emits|Object}
+     * @return {Energy|Object}
      */
     emitter['many'] = function(id, more, fn) {
         var that = this, wrap = typeof more == 'number' ? function() {
@@ -167,6 +167,6 @@
         return this['many'](iter ? fn : id, 1, iter ? id : fn);
     };
 
-    emits['applies'] = applies;
-    return emits;
+    energy['applies'] = applies;
+    return energy;
 }));

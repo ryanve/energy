@@ -1,8 +1,8 @@
 (function(root) {
     var common = typeof module != 'undefined' && !!module.exports
       , aok = common ? require('../node_modules/aok') : root.aok
-      , emits = common ? require('../src') : root.emits
-      , emitter = emits()
+      , energy = common ? require('../src') : root.energy
+      , emitter = energy()
       , key = 'key'
       , indexOf = [].indexOf
       , ran = false;
@@ -12,7 +12,7 @@
      
     aok({
         id: 'instance'
-      , test: emitter instanceof emits
+      , test: emitter instanceof energy
     });
 
     aok({

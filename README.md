@@ -1,18 +1,18 @@
-# [emits](../../)
-#### simple event emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
+# [energy](../../)
+#### simple cross-platform event emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
 
-## API ([0.0](../../releases))
+## API ([0.1](../../releases))
 
-### `emits()` &rArr; `emits` instance
+### `energy()` &rArr; `energy` instance
 
 ```js
 // Create an emitter
-var emitter = emits()
+var emitter = energy()
 ```
 
 ### Methods
 
-#### `emitter` inherits from `emits.prototype`
+#### `emitter` inherits from `energy.prototype`
 
 - `emitter.listeners(event)` &rArr; array
 - `emitter.on(event, fn)` &rArr; emitter
@@ -24,8 +24,8 @@ var emitter = emits()
 
 ### Utilities
 
-- `emits.applies(fns, scope, args, breaker?)` &rArr; integer
+- `energy.applies(fns, scope, args, breaker?)` &rArr; integer
 
-## License: [MIT](http://opensource.org/licenses/MIT)
+## License
 
-Copyright (C) 2013 by [Ryan Van Etten](https://github.com/ryanve)
+[MIT](http://opensource.org/licenses/MIT)

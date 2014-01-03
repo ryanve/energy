@@ -1,16 +1,16 @@
 {
-    "name": "emits",
-    "description": "Simple event emitter.",
-    "version": "0.0.0",
-    "homepage": "https://github.com/ryanve/emits",
+    "name": "energy",
+    "description": "Simple cross-platform event emitter.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/ryanve/energy",
     "license": "MIT",
     "author": "Ryan Van Etten",
     "keywords": ["events", "emitter", "emit", "simple", "ender", "server", "browser"],
-    "main": "./emits.js",
+    "main": "./energy.js",
     "ender": "noop",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ryanve/emits.git"
+        "url": "https://github.com/ryanve/energy.git"
     },
     "devDependencies": {
         "aok": "~1.7.0",
