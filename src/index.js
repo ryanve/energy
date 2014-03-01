@@ -46,7 +46,7 @@
    * @param {*} scope
    * @param {Array|Arguments} args
    * @param {*=} stop breaker
-   * @param {number} fired
+   * @return {number} fired
    */
   function applies(fns, scope, args, stop) {
     var l = fns && fns.length, i = 0;
@@ -67,6 +67,7 @@
   /**
    * @param {Array} a array to mutate
    * @param {*=} v value to remove
+   * @param {number=} times occurrences to remove
    */
   function pull(a, v, times) {
     times >>= 0;
@@ -87,7 +88,7 @@
     
   /**
    * @param {string|number} id
-   * @param {number} fired
+   * @return {number} fired
    */  
   emitter[emit] = function(id) {
     var rest = slice.call(arguments, 1), fired = applies(this[listeners](id), this, rest);
