@@ -113,28 +113,27 @@
   };
 
   /**
-   * @param {Array|string|number} id
-   * @param {Function} fn
+   * @param {string|number} id
+   * @param {Function} fn listener to add
    * @return {Energy|Object}
-   */  
+   */
   emitter['on'] = function on(id, fn) {
     if (null == id || null == fn) throw new TypeError('@on');
-    var n, max = this[mode]['max'], iter = typeof id == 'function';
-    n = this[listeners](iter ? fn : id).push(iter ? id : fn);
+    var n, max = this[mode]['max'];
+    n = this[listeners](id).push(fn);
     if (0 < max && n > max) throw new RangeError('@max');
     return this;
   };
     
   /**
-   * @param {(Function|string|number)=} id
-   * @param {(Function|string|number)=} fn handler to remove or iterator index
-   * @param {number=} times number of occurrences to remove - 0 (the default) removes all
+   * @param {(string|number)=} id
+   * @param {Function=} fn listener to remove
+   * @param {number=} times occurrences to remove (the default 0 removes all)
    * @return {Energy|Object}
    */
   emitter['off'] = function(id, fn, times) {
-    var iter = typeof id == 'function';
-    if (null != fn) pull(this[listeners](iter ? fn : id), iter ? id : fn, times);
-    else if (null != id && !iter) this[events][id] = void 0;
+    if (null != fn) pull(this[listeners](id), fn, times);
+    else if (null != id) this[events][id] = void 0;
     else if (!arguments.length) this[events] = {};
     return this;
   };
@@ -156,9 +155,13 @@
     return this['on'](id, wrap);
   };
   
+  /**
+   * @param {string|number} id
+   * @param {Function} fn one-time listener to add
+   * @return {Energy|Object}
+   */
   emitter['once'] = function(id, fn) {
-    var iter = typeof id == 'function';
-    return this['many'](iter ? fn : id, 1, iter ? id : fn);
+    return this['many'](id, 1, fn);
   };
 
   energy['applies'] = applies;
