@@ -1,6 +1,6 @@
 (function(root) {
   var common = typeof module != 'undefined' && !!module.exports
-    , aok = common ? require('../node_modules/aok') : root.aok
+    , aok = common ? require('aok') : root.aok
     , energy = common ? require('../src') : root.energy
     , emitter = energy()
     , key = 'key'
