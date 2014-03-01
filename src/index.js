@@ -1,6 +1,6 @@
 (function(root, name, make) {
   if (typeof module != 'undefined' && module['exports']) module['exports'] = make();
-  else root[name] = make(root);
+  else root[name] = make();
 }(this, 'energy', function() {
 
   var emitter = energy.prototype = Energy.prototype
