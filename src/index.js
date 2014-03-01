@@ -139,6 +139,7 @@
   };
 
   /**
+   * @deprecated https://github.com/ryanve/energy/issues/1
    * @param {string|number} id
    * @param {number|boolean|null|undefined} more
    * @param {Function} fn
