@@ -13,10 +13,10 @@
     "url": "https://github.com/ryanve/energy.git"
   },
   "devDependencies": {
-    "aok": "~1.7.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.4",
+    "aok": "~1.8.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.4"
+    "grunt-contrib-jshint": "~0.8.0"
   }
 }
