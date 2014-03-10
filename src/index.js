@@ -140,30 +140,17 @@
   };
 
   /**
-   * @deprecated https://github.com/ryanve/energy/issues/1
-   * @param {string|number} id
-   * @param {number|boolean|null|undefined} more
-   * @param {Function} fn
-   * @return {Energy|Object}
-   */
-  emitter['many'] = function(id, more, fn) {
-    var that = this, wrap = typeof more == 'number' ? function() {
-      1 < --more || that['off'](id, wrap);
-      return fn.apply(this, arguments);
-    } : function() {
-      more === fn.apply(this, arguments) || that['off'](id, wrap);
-    };
-    wrap[origin] = fn;
-    return this['on'](id, wrap);
-  };
-  
-  /**
    * @param {string|number} id
    * @param {Function} fn one-time listener to add
    * @return {Energy|Object}
    */
   emitter['once'] = function(id, fn) {
-    return this['many'](id, 1, fn);
+    var that = this, handler = function() {
+      that['off'](id, handler);
+      return fn.apply(this, arguments);
+    };
+    handler[origin] = fn;
+    return this['on'](id, handler);
   };
 
   energy['applies'] = applies;

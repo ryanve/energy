@@ -43,21 +43,6 @@
       , test: 0 === emitter.listeners(key).length 
     });
   }).emit(key);
-
-  (function(id, n, tally) {
-    emitter.off(key).many(key, n, function() {
-      ++tally;
-      n == tally ? aok({
-          id: id 
-        , test: true
-      }) : n < tally && aok({
-          id: id
-        , test: false
-      });
-    });
-    while (n--) emitter.emit(key);
-    emitter.emit(key); // extra call checks if it was removed
-  }('many', 2, 0));
   
   (function(id, n) {
     var i = n, initial = emitter.listeners(key).length;
