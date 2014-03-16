@@ -1,5 +1,5 @@
 (function(root, name, make) {
-  if (typeof module != 'undefined' && module['exports']) module['exports'] = make();
+  if (typeof module != 'undefined' && module.exports) module.exports = make();
   else root[name] = make();
 }(this, 'energy', function() {
 
