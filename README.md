@@ -14,7 +14,7 @@ var emitter = energy()
 - `emitter.listeners(event)` &rArr; array
 - `emitter.on(event, fn)` &rArr; emitter
 - `emitter.off(event?, fn?, occurrences?)` &rArr; emitter
-- `emitter.emit(event, args...)` &rArr; integer
+- `emitter.emit(event, ...args)` &rArr; integer
 - `emitter.once(event, fn)` &rArr; emitter
 - `emitter.init()` &rArr; emitter
 
