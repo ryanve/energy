@@ -56,6 +56,6 @@
   }('repeat', 3));
 
   setTimeout(function() {
-    ran || aok.warn('Expected tests did not run yet.');
-  }, 1000);
+    ran ? aok.info('All tests ran.') : aok.warn('Some tests did not run yet.');
+  }, 0);
 }(this));
