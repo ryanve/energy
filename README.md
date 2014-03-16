@@ -3,41 +3,91 @@
 
 ## API ([0.3](../../releases))
 
-### `energy()` &rArr; `energy` instance
+#### Require `energy`
 
 ```js
-// Create an emitter.
+var energy = require('energy')
+```
+
+#### Create an emitter instance
+
+```js
 var emitter = energy()
 ```
 
-### emitter methods
-- `emitter.listeners(event)` &rArr; array
-- `emitter.on(event, fn)` &rArr; emitter
-- `emitter.off(event?, fn?, occurrences?)` &rArr; emitter
-- `emitter.emit(event, ...args)` &rArr; integer
-- `emitter.once(event, fn)` &rArr; emitter
-- `emitter.init()` &rArr; emitter
+#### Methods
+- [emitter.<b>on</b>(event, listener)](#emitter-on)
+- [emitter.<b>off</b>(event?, listener?, quota?)](#emitter-off)
+- [emitter.<b>emit</b>(event, ...args)](#emitter-emit)
+- [emitter.<b>once</b>(event, listener)](#emitter-once)
+- [emitter.<b>listeners</b>(event)](#emitter-listeners)
+- [energy.<b>applies</b>(fns, scope, args, breaker?)](#energy-applies)
 
-### static utilities
-- `energy.applies(fns, scope, args, breaker?)` &rArr; integer
+#### Parameters
+
+- <var>emitter</var> refers to an `energy()` object
+- <var>event</var> refers to an event name
+- <var>listener</var> refers to a function that listens to an event
+
+<a name="emitter-on"></a>
+#### `emitter.on(event, listener)`
+- Add <var>listener</var> for <var>event</var>
+- <b>@return</b> emitter
+
+<a name="emitter-off"></a>
+#### `emitter.off(event?, listener?, quota?)`
+- Remove listener(s)
+  - `.off()` removes all listeners for all events
+  - `.off(event)` removes all <var>event</var> listeners
+  - `.off(event, listener)` removes all occurrences of <var>event</var> <var>listener</var>
+  - `.off(event, listener, quota)` remove <var>quota</var> occurrences of <var>event</var> <var>listener</var>
+- <b>@return</b> emitter
+
+<a name="emitter-emit"></a>
+#### `emitter.emit(event, ...args)`
+- Fire <var>event</var> listeners (in sequence) with the supplied arguments
+- Listeners run in the context of <var>emitter</var>
+- <b>@return</b> integer (number of listeners that fired)
+
+<a name="emitter-once"></a>
+#### `emitter.once(event, listener)`
+- Add a one-time <var>event</var> <var>listener</var>
+- <b>@return</b> emitter
+
+<a name="emitter-listeners"></a>
+#### `emitter.listeners(event)`
+- Access the listeners array for the specified <var>event</var>
+- <b>@return</b> array (reference)
+
+<a name="emitter-init"></a>
+#### `emitter.init()`
+- Reinitialize an emitter 
+- <b>@return</b> emitter
+
+<a name="energy-applies"></a>
+#### `energy.applies(fns, scope, args, breaker?)`
+- Apply each function with <var>scope</var> and <var>args</var>
+- If <var>breaker</var> is defined, then functions can return <var>breaker</var> to abort subsequent applies
+- <b>@return</b> integer (number of functions that fired)
 
 <a name="platforms"></a>
 ## Compatibility
 
-Works in node **and** in any browser. Tested in node, Chrome, FF, Opera, IE8
+Works in [node](http://nodejs.org) **and** in any browser. Tested in node, Chrome, FF, Opera, IE8
 
 ## Contribute
-Make edits in [/<b>src</b>](./src). Run [tests](test) in [node](#cli) or in the [browser](test/index.html).
+To make edits, first [fork the repo](https://help.github.com/articles/fork-a-repo), clone your fork, and `cd` into it. Run [tests](test) via the commands below and/or in a [browser](test/index.html). Make edits in [src](src) and [test](test) as needed. Push your changes and then submit a [pull request](https://help.github.com/articles/using-pull-requests). Builds (in the [project root](../../)) are created later via `grunt` and should not be changed in pull requests. CLI commands require [node](http://nodejs.org) and the [grunt-cli](http://gruntjs.com/getting-started) on your system.
 
 <a name="cli"></a>
 ```sh
-$ npm install # install devDependencies
+$ npm install -g grunt-cli # install grunt-cli if you haven't already
+$ npm install # install devDependencies from package.json
 $ grunt jshint:sub # lint sub dirs
 $ grunt test # run tests
 ```
 
 ## Fund
-<b>[Tip the developer](https://www.gittip.com/ryanve/)</b> =)
+Support this project by [tipping the developer](https://www.gittip.com/ryanve/) <samp><b>=)</b></samp>
 
 ## License
 
