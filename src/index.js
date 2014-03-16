@@ -67,13 +67,13 @@
   /**
    * @param {Array} a array to mutate
    * @param {*=} v value to remove
-   * @param {number=} times occurrences to remove
+   * @param {number=} quota occurrences to remove
    */
-  function pull(a, v, times) {
-    times >>= 0;
+  function pull(a, v, quota) {
+    quota >>= 0;
     for (var i = a.length; i--;) {
       // Loop down so that splices don't interfere with subsequent iterations.
-      if ((v === a[i] || a[i] && v === a[i][origin]) && a.splice(i, 1) && !--times) break;
+      if ((v === a[i] || a[i] && v === a[i][origin]) && a.splice(i, 1) && !--quota) break;
     }
   }
   
@@ -129,11 +129,11 @@
   /**
    * @param {(string|number)=} id
    * @param {Function=} fn listener to remove
-   * @param {number=} times occurrences to remove (the default 0 removes all)
+   * @param {number=} quota occurrences to remove (the default 0 removes all)
    * @return {Energy|Object}
    */
-  emitter['off'] = function(id, fn, times) {
-    if (null != fn) pull(this[listeners](id), fn, times);
+  emitter['off'] = function(id, fn, quota) {
+    if (null != fn) pull(this[listeners](id), fn, quota);
     else if (null != id) this[events][id] = void 0;
     else if (!arguments.length) this[events] = {};
     return this;
