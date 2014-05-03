@@ -44,7 +44,7 @@
    * @this {Function} wrapper that constructs the source instance
    * @param {Object|Function} target to convert into emitter
    * @return {Object|Function} target converted into emitter
-   */  
+   */
   energy['to'] = function(target) {
     return defaults(target, this.call());
   };
@@ -53,7 +53,7 @@
    * @this {Object|Energy|Function} source emitter or emitter-like
    * @param {Object|Energy|Function} target to convert into emitter
    * @return {Object|Energy|Function} source for chaining
-   */  
+   */
   emitter['to'] = function(target) {
     defaults(target, this);
     return this;
@@ -97,7 +97,7 @@
   
   /**
    * @this {Energy|Object}
-   */  
+   */
   emitter[init] = function() {
     ensure(this, mode, {});
     ensure(this, events, {});
@@ -107,7 +107,7 @@
   /**
    * @param {string|number} id
    * @return {number} fired
-   */  
+   */
   emitter[emit] = function(id) {
     var rest = slice.call(arguments, 1), fired = applies(this[listeners](id), this, rest);
     this[mode]['all'] && applies(this[listeners](this[mode]['all']), this, rest);
@@ -117,14 +117,14 @@
   /**
    * @param {string|number} id
    * @return {Array}
-   */  
+   */
   emitter[listeners] = function(id) {
     return this[events][id] = ifArray(this[events][id]) || [];
   };
   
   /**
    * @return {Energy}
-   */  
+   */
   emitter['clone'] = function() {
     var clone = new Energy(this);
     defaults(clone[events], this[events]);
