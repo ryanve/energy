@@ -8,15 +8,14 @@
     , array = []
     , slice = array.slice
     , owns = proceed.hasOwnProperty
-    , toString = proceed.toString
     , events = '_events'
     , origin = '_origin'
     , emit = 'emit'
     , mode = 'mode'
     , init = 'init'
     , listeners = 'listeners'
-    , isArray = Array.isArray || function(o) {
-        return toString.call(array) === toString.call(o);
+    , ifArray = function(o) {
+        return o instanceof Array && o;
       };
     
   emitter[mode] = {'max': 0, 'all':false};
@@ -119,7 +118,7 @@
    * @return {Array}
    */  
   emitter[listeners] = function(id) {
-    return isArray(this[events][id]) ? this[events][id] : this[events][id] = [];
+    return this[events][id] = ifArray(this[events][id]) || [];
   };
   
   /**
