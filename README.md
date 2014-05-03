@@ -1,7 +1,7 @@
 # energy
 #### simple [cross-platform](#platforms) event emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
 
-## API ([0.3](../../releases))
+## API ([0.4](../../releases))
 
 #### Require `energy`
 
@@ -20,8 +20,12 @@ var emitter = energy()
 - [emitter.<b>off</b>(event?, listener?, quota?)](#emitter-off)
 - [emitter.<b>emit</b>(event, ...args)](#emitter-emit)
 - [emitter.<b>once</b>(event, listener)](#emitter-once)
+- [emitter.<b>clone</b>()](#emitter-clone)
 - [emitter.<b>listeners</b>(event)](#emitter-listeners)
-- [energy.<b>applies</b>(fns, scope, args, breaker?)](#energy-applies)
+- [emitter.<b>init</b>()](#emitter-init)
+- [emitter.<b>to</b>(target)](#emitter-to)
+- [<b>energy</b>.to(target)](#energy-to)
+- [<b>energy</b>.applies(fns, scope, args, breaker?)](#energy-applies)
 
 #### Parameters
 
@@ -52,7 +56,12 @@ var emitter = energy()
 <a name="emitter-once"></a>
 #### `emitter.once(event, listener)`
 - Add a one-time <var>event</var> <var>listener</var>
-- <b>@return</b> emitter
+- <b>@return</b> <var>emitter</var>
+
+<a name="emitter-clone"></a>
+#### `emitter.clone()`
+- Clone an emitter at its current state
+- <b>@return</b> a new emitter
 
 <a name="emitter-listeners"></a>
 #### `emitter.listeners(event)`
@@ -62,7 +71,17 @@ var emitter = energy()
 <a name="emitter-init"></a>
 #### `emitter.init()`
 - Reinitialize an emitter 
-- <b>@return</b> emitter
+- <b>@return</b> <var>emitter</var>
+
+<a name="emitter-to"></a>
+#### `emitter.to(target)`
+- Make <var>target</var> [emitter-like](../../issues/3) based on `emitter` as the source.
+- <b>@return</b> <var>emitter</var>
+
+<a name="energy-to"></a>
+#### `energy.to(target)`
+- Make <var>target</var> emitter-like based on a `energy()` object as the source
+- <b>@return</b> <var>target</var> with emitter methods and properties
 
 <a name="energy-applies"></a>
 #### `energy.applies(fns, scope, args, breaker?)`
@@ -90,5 +109,4 @@ $ grunt test # run tests
 Support this project by [tipping the developer](https://www.gittip.com/ryanve/) <samp><b>=)</b></samp>
 
 ## License
-
-[MIT](package.json#L6-L7)
+MIT
