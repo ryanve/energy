@@ -22,10 +22,7 @@
       emitter.on(key, noop).on(key, noop).off(key, noop);
       bool = gone(noop);
     }
-    aok({
-        id: id
-      , test: bool
-    });
+    aok(id, bool);
     emitter.off(key, noop);
   }('off'));
 
