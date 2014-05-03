@@ -35,11 +35,29 @@
   }
 
   /**
-   * @return {Energy}
+   * @return {Energy} emitter instance
    */
   function energy(o) {
     return o instanceof Energy ? o[init]() : new Energy(o);
   }
+  
+  /**
+   * @this {Function} wrapper that constructs the source instance
+   * @param {Object|Function} target to convert into emitter
+   * @return {Object|Function} target converted into emitter
+   */  
+  energy['into'] = function(target) {
+    return defaults(target, this.call());
+  };
+  
+  /**
+   * @this {Energy|Object|Function} source emitter
+   * @param {Object|Function} target to convert into emitter
+   * @return {Object|Function} target converted into emitter
+   */  
+  emitter['into'] = function(target) {
+    return defaults(target, this);
+  };
   
   /**
    * @param {{length:number}} fns
