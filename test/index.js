@@ -10,15 +10,8 @@
   function noop() {}
   function yes() { return true; }
    
-  aok({
-      id: 'instance'
-    , test: emitter instanceof energy
-  });
-
-  aok({
-      id: 'listeners'
-    , test: typeof emitter.listeners(key).length == 'number'
-  });
+  aok('instance', emitter instanceof energy);
+  aok('listeners', typeof emitter.listeners(key).length == 'number');
   
   (function(id) {
     var bool = true, gone = indexOf ? function(what) {
@@ -38,20 +31,14 @@
 
   emitter.off(key).once(key, function() {
     ran = true;
-    aok({
-        id: 'once'
-      , test: 0 === emitter.listeners(key).length 
-    });
+    aok('once', 0 === emitter.listeners(key).length);
   }).emit(key);
   
   (function(id, n) {
     var i = n, initial = emitter.listeners(key).length;
     emitter.off(key, noop);
     while (i--) emitter.on(key, noop);
-    aok({
-        id: id
-      , test: n === (emitter.listeners(key).length-initial)
-    });
+    aok(id, n === emitter.listeners(key).length - initial);
     emitter.off(key, noop);
   }('repeat', 3));
 
