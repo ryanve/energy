@@ -45,7 +45,7 @@
    * @param {Object|Function} target to convert into emitter
    * @return {Object|Function} target converted into emitter
    */  
-  energy['into'] = function(target) {
+  energy['to'] = function(target) {
     return defaults(target, this.call());
   };
   
@@ -54,7 +54,7 @@
    * @param {Object|Energy|Function} target to convert into emitter
    * @return {Object|Energy|Function} source for chaining
    */  
-  emitter['into'] = function(target) {
+  emitter['to'] = function(target) {
     defaults(target, this);
     return this;
   };

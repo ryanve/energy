@@ -13,12 +13,12 @@
   aok('instance', emitter instanceof energy);
   aok('listeners', typeof emitter.listeners(key).length == 'number');
   
-  aok('into', function() {
+  aok('to', function() {
     function wannabe() {
       wannabe.emit('called');
     }
 
-    var bool = wannabe === energy.into(wannabe) && typeof wannabe.emit == 'function';
+    var bool = wannabe === energy.to(wannabe) && typeof wannabe.emit == 'function';
     bool && wannabe.once('called', function() {
       bool = this === wannabe;
     }) && wannabe();
