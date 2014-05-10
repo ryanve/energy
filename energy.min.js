@@ -1,5 +1,5 @@
 /*!
- * energy 0.4.0+201405032016
+ * energy 0.4.1+201405102103
  * https://github.com/ryanve/energy
  * MIT License (c) 2014 Ryan Van Etten
  */
