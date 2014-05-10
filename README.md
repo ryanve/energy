@@ -3,16 +3,18 @@
 
 ## API ([0.4](../../releases))
 
-#### Require `energy`
-
-```js
-var energy = require('energy')
-```
-
 #### Create an emitter instance
 
 ```js
+var energy = require('energy')
 var emitter = energy()
+```
+
+Or use `new` if you prefer. Either way works :)
+
+```js
+var energy = require('energy')
+var emitter = new energy()
 ```
 
 #### Methods
