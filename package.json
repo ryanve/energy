@@ -5,7 +5,15 @@
   "homepage": "https://github.com/ryanve/energy",
   "license": "MIT",
   "author": "Ryan Van Etten",
-  "keywords": ["events", "emitter", "emit", "simple", "ender", "server", "browser"],
+  "keywords": [
+    "events",
+    "emitter",
+    "emit",
+    "simple",
+    "ender",
+    "server",
+    "browser"
+  ],
   "main": "./energy.js",
   "ender": "noop",
   "repository": {
@@ -17,7 +25,8 @@
     "universal": "~0.1.0",
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.9.0"
+    "grunt-contrib-jshint": "~0.9.0",
+    "deep-equal": "~0.2.1"
   },
   "jshintConfig": {
     "asi": true,
@@ -30,7 +39,7 @@
     "expr": true,
     "globals": {
       "define": true,
-      "ender": true 
+      "ender": true
     },
     "jquery": true,
     "lastsemic": true,
