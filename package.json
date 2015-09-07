@@ -1,18 +1,21 @@
 {
   "name": "energy",
-  "description": "Simple cross-platform event emitter.",
-  "version": "0.4.1",
+  "description": "Simple cross-platform event emitter",
+  "version": "0.5.0",
   "homepage": "https://github.com/ryanve/energy",
   "license": "MIT",
   "author": "Ryan Van Etten",
   "keywords": [
+    "eventemitter",
     "events",
+    "event",
+    "listener",
     "emitter",
     "emit",
-    "simple",
     "ender",
     "server",
-    "browser"
+    "browser",
+    "simple"
   ],
   "main": "./energy.js",
   "ender": "noop",
@@ -21,12 +24,12 @@
     "url": "https://github.com/ryanve/energy.git"
   },
   "devDependencies": {
-    "aok": "~1.8.1",
-    "universal": "~0.1.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.9.0",
-    "deep-equal": "~0.2.1"
+    "aok": "^1.9.0",
+    "universal": "^0.1.1",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "^0.11.0",
+    "deep-equal": "^1.0.1"
   },
   "jshintConfig": {
     "asi": true,

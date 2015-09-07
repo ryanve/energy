@@ -1,7 +1,7 @@
 /*!
- * energy 0.4.1+201405102103
+ * energy 0.5.0+201509072117
  * https://github.com/ryanve/energy
- * MIT License (c) 2014 Ryan Van Etten
+ * @license MIT
  */
 !function(root, name, make) {
   if (typeof module != 'undefined' && module.exports) module.exports = make()
@@ -22,9 +22,9 @@
     , ifArray = function(o) {
         return o instanceof Array && o
       }
-    
+
   emitter[mode] = {'max': 0, 'all':false}
-    
+
   function defaults(ops, defs) {
     for (var k in defs) if (void 0 === ops[k]) ops[k] = defs[k]
     return ops
@@ -44,7 +44,7 @@
   function energy(o) {
     return o instanceof Energy ? o[init]() : new Energy(o)
   }
-  
+
   /**
    * @this {Function} wrapper that constructs the source instance
    * @param {Object|Function} target to convert into emitter
@@ -53,7 +53,7 @@
   energy['to'] = function(target) {
     return defaults(target, this.call())
   }
-  
+
   /**
    * @this {Object|Energy|Function} source emitter or emitter-like
    * @param {Object|Energy|Function} target to convert into emitter
@@ -63,7 +63,7 @@
     defaults(target, this)
     return this
   }
-  
+
   /**
    * @param {{length:number}} fns
    * @param {*} scope
@@ -77,7 +77,7 @@
     while (i < l) if (stop === fns[i++].apply(scope, args)) break
     return i
   }
-  
+
   /**
    * @param {Object} o
    * @param {string} k
@@ -88,18 +88,25 @@
   }
 
   /**
+   * @param {*} listener
+   * @param {*} fn
+   * @return {boolean} true if they're the same listener
+   */
+  function is(listener, fn) {
+    return listener === fn || !!listener && listener[origin] === fn
+  }
+
+  /**
    * @param {Array} a array to mutate
    * @param {*=} v value to remove
    * @param {number=} quota occurrences to remove
    */
   function pull(a, v, quota) {
     quota >>= 0
-    for (var i = a.length; i--;) {
-      // Loop down so that splices don't interfere with subsequent iterations.
-      if ((v === a[i] || a[i] && v === a[i][origin]) && a.splice(i, 1) && !--quota) break
-    }
+    // Loop down so that splices don't interfere with subsequent iterations
+    for (var i = a.length; i--;) if (is(a[i], v) && a.splice(i, 1) && !--quota) break
   }
-  
+
   /**
    * @this {Energy|Object}
    */
@@ -108,7 +115,7 @@
     ensure(this, events, {})
     return this
   }
-    
+
   /**
    * @param {string|number} id
    * @return {number} fired
@@ -118,7 +125,7 @@
     this[mode]['all'] && applies(this[listeners](this[mode]['all']), this, rest)
     return fired
   }
-  
+
   /**
    * @param {string|number} id
    * @return {Array}
@@ -126,7 +133,7 @@
   emitter[listeners] = function(id) {
     return this[events][id] = ifArray(this[events][id]) || []
   }
-  
+
   /**
    * @return {Energy}
    */
@@ -148,7 +155,7 @@
     if (0 < max && n > max) throw new RangeError('@max')
     return this
   }
-    
+
   /**
    * @param {(string|number)=} id
    * @param {Function=} fn listener to remove
