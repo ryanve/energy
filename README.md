@@ -1,7 +1,7 @@
 # energy
 #### simple [cross-platform](#platforms) event emitter based on [`EventEmitter`](http://nodejs.org/api/events.html)
 
-## API ([0.4](../../releases))
+## API
 
 #### Create an emitter instance
 
@@ -72,7 +72,7 @@ var emitter = new energy()
 
 <a name="emitter-init"></a>
 #### `emitter.init()`
-- Reinitialize an emitter 
+- Reinitialize an emitter
 - <b>@return</b> <var>emitter</var>
 
 <a name="emitter-to"></a>
