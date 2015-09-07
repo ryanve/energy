@@ -126,6 +126,7 @@
    * @return {Array}
    */
   emitter[listeners] = function(id) {
+    if (null == id) throw new TypeError('@' + listeners)
     return this[events][id] = ifArray(this[events][id]) || []
   }
 
