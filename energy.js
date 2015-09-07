@@ -1,5 +1,5 @@
 /*!
- * energy 0.5.0+201509072117
+ * energy 0.6.0+201509072320
  * https://github.com/ryanve/energy
  * @license MIT
  */
@@ -131,6 +131,7 @@
    * @return {Array}
    */
   emitter[listeners] = function(id) {
+    if (null == id) throw new TypeError('@' + listeners)
     return this[events][id] = ifArray(this[events][id]) || []
   }
 
