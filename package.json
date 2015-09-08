@@ -1,7 +1,7 @@
 {
   "name": "energy",
   "description": "Simple cross-platform event emitter",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "https://github.com/ryanve/energy",
   "license": "MIT",
   "author": "Ryan Van Etten",

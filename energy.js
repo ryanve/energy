@@ -1,5 +1,5 @@
 /*!
- * energy 0.6.0+201509072320
+ * energy 0.7.0+201509080034
  * https://github.com/ryanve/energy
  * @license MIT
  */
@@ -16,14 +16,11 @@
     , events = '_events'
     , origin = '_origin'
     , emit = 'emit'
-    , mode = 'mode'
     , init = 'init'
     , listeners = 'listeners'
     , ifArray = function(o) {
         return o instanceof Array && o
       }
-
-  emitter[mode] = {'max': 0, 'all':false}
 
   function defaults(ops, defs) {
     for (var k in defs) if (void 0 === ops[k]) ops[k] = defs[k]
@@ -33,8 +30,7 @@
   /**
    * @constructor
    */
-  function Energy(ops) {
-    this[mode] = ops instanceof Energy ? defaults({}, ops[mode]) : defaults(ops || {}, emitter[mode])
+  function Energy() {
     this[events] = {}
   }
 
@@ -42,7 +38,7 @@
    * @return {Energy} emitter instance
    */
   function energy(o) {
-    return o instanceof Energy ? o[init]() : new Energy(o)
+    return o instanceof Energy ? o[init]() : new Energy
   }
 
   /**
@@ -111,7 +107,6 @@
    * @this {Energy|Object}
    */
   emitter[init] = function() {
-    ensure(this, mode, {})
     ensure(this, events, {})
     return this
   }
@@ -122,7 +117,6 @@
    */
   emitter[emit] = function(id) {
     var rest = slice.call(arguments, 1), fired = applies(this[listeners](id), this, rest)
-    this[mode]['all'] && applies(this[listeners](this[mode]['all']), this, rest)
     return fired
   }
 
@@ -151,9 +145,7 @@
    */
   emitter['on'] = function on(id, fn) {
     if (null == id || null == fn) throw new TypeError('@on')
-    var n, max = this[mode]['max']
-    n = this[listeners](id).push(fn)
-    if (0 < max && n > max) throw new RangeError('@max')
+    this[listeners](id).push(fn)
     return this
   }
 
