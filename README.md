@@ -95,20 +95,3 @@ var emitter = new energy()
 ## Compatibility
 
 Works in [node](http://nodejs.org) **and** in any browser. Tested in node, Chrome, FF, Opera, IE8
-
-## Contribute
-To make edits, first [fork the repo](https://help.github.com/articles/fork-a-repo), clone your fork, and `cd` into it. Run [tests](test) via the commands below and/or in a [browser](test/index.html). Make edits in [src](src) and [test](test) as needed. Push your changes and then submit a [pull request](https://help.github.com/articles/using-pull-requests). Builds (in the [project root](../../)) are created later via `grunt` and should not be changed in pull requests. CLI commands require [node](http://nodejs.org) and the [grunt-cli](http://gruntjs.com/getting-started) on your system.
-
-<a name="cli"></a>
-```sh
-$ npm install -g grunt-cli # install grunt-cli if you haven't already
-$ npm install # install devDependencies from package.json
-$ grunt jshint:sub # lint sub dirs
-$ grunt test # run tests
-```
-
-## Fund
-Support this project by [tipping the developer](https://www.gittip.com/ryanve/) <samp><b>=)</b></samp>
-
-## License
-MIT

@@ -1,8 +1,4 @@
-/*!
- * energy 0.7.1+201509080043
- * https://github.com/ryanve/energy
- * @license MIT
- */
+/** @preserve npm.im/energy */
 !function(root, name, make) {
   if (typeof module != 'undefined' && module.exports) module.exports = make()
   else root[name] = make()

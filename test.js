@@ -1,7 +1,7 @@
 !function(root) {
   var common = typeof module != 'undefined' && !!module.exports
     , aok = common ? require('aok') : root.aok
-    , energy = common ? require('../src') : root.energy
+    , energy = common ? require('./') : root.energy
     , emitters = [energy(), new energy]
     , key = 'key'
     , indexOf = [].indexOf
