@@ -6,15 +6,15 @@
 #### Create an emitter instance
 
 ```js
-var energy = require('energy')
-var emitter = energy()
+const energy = require("energy")
+const emitter = energy()
 ```
 
 Or use `new` if you prefer. Either way works :)
 
 ```js
-var energy = require('energy')
-var emitter = new energy()
+const energy = require("energy")
+const emitter = new energy
 ```
 
 #### Methods
