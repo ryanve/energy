@@ -27,7 +27,6 @@ const emitter = new energy
 - [emitter.<b>init</b>()](#emitter-init)
 - [emitter.<b>to</b>(target)](#emitter-to)
 - [<b>energy</b>.to(target)](#energy-to)
-- [<b>energy</b>.applies(fns, scope, args)](#energy-applies)
 
 #### Parameters
 
@@ -53,7 +52,7 @@ const emitter = new energy
 #### `emitter.emit(event, ...args)`
 - Fire <var>event</var> listeners (in sequence) with the supplied arguments
 - Listeners run in the context of <var>emitter</var>
-- <b>@return</b> integer (number of listeners that fired)
+- <b>@return</b> number of invoked listeners
 
 <a name="emitter-once"></a>
 #### `emitter.once(event, listener)`
@@ -84,11 +83,6 @@ const emitter = new energy
 #### `energy.to(target)`
 - Make <var>target</var> emitter-like based on a `energy()` object as the source
 - <b>@return</b> <var>target</var> with emitter methods and properties
-
-<a name="energy-applies"></a>
-#### `energy.applies(fns, scope, args)`
-- Apply each function with <var>scope</var> and <var>args</var>
-- <b>@return</b> integer (number of functions that fired)
 
 <a name="platforms"></a>
 ## Compatibility
