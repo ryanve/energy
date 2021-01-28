@@ -5,10 +5,9 @@
 }(this, 'energy', function() {
 
   var emitter = energy.prototype = Energy.prototype
-    , proceed = {}
     , array = []
     , slice = array.slice
-    , owns = proceed.hasOwnProperty
+    , owns = {}.hasOwnProperty
     , events = '_events'
     , origin = '_origin'
     , emit = 'emit'
@@ -60,13 +59,11 @@
    * @param {{length:number}} fns
    * @param {*} scope
    * @param {Array|Arguments} args
-   * @param {*=} stop breaker
    * @return {number} fired
    */
-  function applies(fns, scope, args, stop) {
+  function applies(fns, scope, args) {
     var l = fns && fns.length, i = 0
-    stop = void 0 === stop ? proceed : stop
-    while (i < l) if (stop === fns[i++].apply(scope, args)) break
+    while (i < l) fns[i++].apply(scope, args)
     return i
   }
 

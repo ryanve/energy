@@ -27,7 +27,7 @@ const emitter = new energy
 - [emitter.<b>init</b>()](#emitter-init)
 - [emitter.<b>to</b>(target)](#emitter-to)
 - [<b>energy</b>.to(target)](#energy-to)
-- [<b>energy</b>.applies(fns, scope, args, breaker?)](#energy-applies)
+- [<b>energy</b>.applies(fns, scope, args)](#energy-applies)
 
 #### Parameters
 
@@ -86,9 +86,8 @@ const emitter = new energy
 - <b>@return</b> <var>target</var> with emitter methods and properties
 
 <a name="energy-applies"></a>
-#### `energy.applies(fns, scope, args, breaker?)`
+#### `energy.applies(fns, scope, args)`
 - Apply each function with <var>scope</var> and <var>args</var>
-- If <var>breaker</var> is defined, then functions can return <var>breaker</var> to abort subsequent applies
 - <b>@return</b> integer (number of functions that fired)
 
 <a name="platforms"></a>
