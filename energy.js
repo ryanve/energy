@@ -59,7 +59,7 @@
    * @param {{length:number}} fns
    * @param {*} scope
    * @param {Array|Arguments} args
-   * @return {number} fired
+   * @return {number} applied
    */
   function applies(fns, scope, args) {
     var l = fns && fns.length, i = 0
@@ -109,8 +109,8 @@
    * @return {number} fired
    */
   emitter[emit] = function(id) {
-    var rest = slice.call(arguments, 1), fired = applies(this[listeners](id), this, rest)
-    return fired
+    var rest = slice.call(arguments, 1)
+    return applies(this[listeners](id), this, rest)
   }
 
   /**
@@ -169,6 +169,5 @@
     return this['on'](id, handler)
   }
 
-  energy['applies'] = applies
   return energy
 });
