@@ -56,18 +56,6 @@
   }
 
   /**
-   * @param {{length:number}} fns
-   * @param {*} scope
-   * @param {Array|Arguments} args
-   * @return {number} applied
-   */
-  function applies(fns, scope, args) {
-    var l = fns && fns.length, i = 0
-    while (i < l) fns[i++].apply(scope, args)
-    return i
-  }
-
-  /**
    * @param {Object} o
    * @param {string} k
    * @param {*} def
@@ -106,11 +94,17 @@
 
   /**
    * @param {string|number} id
-   * @return {number} fired
+   * @return {number} invoked listeners
    */
   emitter[emit] = function(id) {
+    var fns = this[listeners](id)
+    var l = fns && fns.length
+    if (!l) return 0
     var rest = slice.call(arguments, 1)
-    return applies(this[listeners](id), this, rest)
+    var i = 0
+    while (i < l)
+      fns[i++].apply(this, rest)
+    return i
   }
 
   /**
