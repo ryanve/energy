@@ -58,10 +58,9 @@
   /**
    * @param {Object} o
    * @param {string} k
-   * @param {*} def
    */
-  function ensure(o, k, def) {
-    o[k] = owns.call(o, k) && o[k] || def
+  function ensure(o, k) {
+    o[k] = owns.call(o, k) && o[k] || {}
   }
 
   /**
@@ -88,7 +87,7 @@
    * @this {Energy|Object}
    */
   emitter[init] = function() {
-    ensure(this, events, {})
+    ensure(this, events)
     return this
   }
 
