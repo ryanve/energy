@@ -56,14 +56,6 @@
   }
 
   /**
-   * @param {Object} o
-   * @param {string} k
-   */
-  function ensure(o, k) {
-    o[k] = owns.call(o, k) && o[k] || {}
-  }
-
-  /**
    * @param {*} listener
    * @param {*} fn
    * @return {boolean} true if they're the same listener
@@ -81,6 +73,14 @@
     quota >>= 0
     // Loop down so that splices don't interfere with subsequent iterations
     for (var i = a.length; i--;) if (is(a[i], v) && a.splice(i, 1) && !--quota) break
+  }
+
+  /**
+   * @param {Object} o
+   * @param {string} k
+   */
+  function ensure(o, k) {
+    o[k] = owns.call(o, k) && o[k] || {}
   }
 
   /**
