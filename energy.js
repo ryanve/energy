@@ -61,7 +61,7 @@
    * @param {*} def
    */
   function ensure(o, k, def) {
-    o[k] = owns.call(this, k) && this[k] || def
+    o[k] = owns.call(o, k) && o[k] || def
   }
 
   /**
