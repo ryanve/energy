@@ -7,10 +7,7 @@
   "author": "Ryan Van Etten",
   "main": "energy.js",
   "ender": "noop",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ryanve/energy.git"
-  },
+  "repository": "github:ryanve/energy",
   "scripts": {
     "pretest": "jshint energy.js && jshint test.js",
     "test": "node test"
